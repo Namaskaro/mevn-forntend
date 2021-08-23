@@ -4,21 +4,43 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.13.2",
+    "@tailwindcss/postcss7-compat": "^2.1.0",
+    "autoprefixer": "^9.8.6",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "epic-spinners": "^1.1.0",
+    "lodash-es": "^4.17.21",
+    "postcss": "^7.0.35",
+    "ramda": "^0.27.1",
+    "stripe": "^8.144.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vue-social-sharing": "^3.0.7",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/vue": "^6.1.17",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "babel-loader": "^8.2.2",
+    "deepmerge": "^4.2.2",
     "node-sass": "^4.12.0",
+    "sass": "^1.32.6",
     "sass-loader": "^8.0.2",
+    "vue-stripe-elements-plus": "^1.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

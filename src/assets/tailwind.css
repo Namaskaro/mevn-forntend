@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+.wrapper {
+  min-height: 60vh;
+}
+@tailwind utilities;

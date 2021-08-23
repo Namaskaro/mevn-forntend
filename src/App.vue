@@ -1,32 +1,52 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class="dark:bg-black delay-300 transition-colors">
+    <Navbar />
+    <div class="container wrapper mx-auto my-10">
+      <router-view />
     </div>
-    <router-view/>
+
+    <Footer />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import {mapGetters, mapActions} from 'vuex'
+export default {
+  components: {
+    Navbar,
+    Footer
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'categories',
+      cartCount: 'cartCount',
+      theme: 'getTheme'
+    })
+  },
+  methods: {
+    ...mapActions({
+      fetchCategories: 'fetchCategories'
+    })
+  },
+  mounted() {
+    this.fetchCategories()
+  },
+  beforeMount() {
+    this.$store.dispatch('initTheme')
+  },
+  computed: {
+    ...mapGetters({theme: 'getTheme'})
+  },
+  watch: {
+    theme(newTheme, oldTheme) {
+      newTheme === 'light'
+        ? document.querySelector('html').classList.remove('dark')
+        : document.querySelector('html').classList.add('dark')
     }
   }
 }
-</style>
+</script>
+
+<style lang="css"></style>
